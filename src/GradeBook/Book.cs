@@ -2,22 +2,22 @@ using System;
 using System.Collections.Generic; 
 namespace GradeBook
 {
-    class Book
+    public class Book
     {
         // don't use implicit typing with fields : var keyword  
         List<double> grades = new List<double>();//this is a field= attribute 
-        public void showStatistics(){
-            double result = 0.0;
-            double lowDegree = double.MaxValue;
-            double highDegree = double.MinValue;
+        public Statistics getStatistics(){
+            Statistics result = new Statistics();
+            result.average = 0.0;
+            result.low = double.MaxValue;
+            result.high = double.MinValue;
             foreach(var grade in grades){
-                result+= grade;
-                lowDegree = Math.Min(grade,lowDegree);
-                highDegree = Math.Max(grade,highDegree);
+                result.average+= grade;
+                result.low = Math.Min(grade,result.low);
+                result.high = Math.Max(grade,result.high);
             }
-            System.Console.WriteLine($"average grade {(result/ grades.Count):N1}");
-            System.Console.WriteLine($"lowest grade {lowDegree}");
-            System.Console.WriteLine($"highest grade {highDegree}");
+            result.average/=grades.Count; 
+            return result;
         }
         public void addGrade(double x){
             //always add validation input in every method
