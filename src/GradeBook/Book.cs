@@ -11,9 +11,11 @@ namespace GradeBook
             double lowDegree = double.MaxValue;
             double highDegree = double.MinValue;
             foreach(var grade in grades){
+                result+= grade;
                 lowDegree = Math.Min(grade,lowDegree);
                 highDegree = Math.Max(grade,highDegree);
             }
+            System.Console.WriteLine($"average grade {(result/ grades.Count):N1}");
             System.Console.WriteLine($"lowest grade {lowDegree}");
             System.Console.WriteLine($"highest grade {highDegree}");
         }
