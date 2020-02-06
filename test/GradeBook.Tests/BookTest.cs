@@ -3,13 +3,13 @@ using Xunit;
 
 namespace GradeBook.Tests
 {
-    public class UnitTest1
+    public class BookTest
     {
         [Fact]
-        public void Test1()
+        public void BookCalculationsTest()
         {
             //arrange 
-            Book book = new Book();
+            Book book = new Book("book");
             book.addGrade(45);
             book.addGrade(72);
             book.addGrade(60);

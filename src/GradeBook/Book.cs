@@ -5,7 +5,12 @@ namespace GradeBook
     public class Book
     {
         // don't use implicit typing with fields : var keyword  
-        List<double> grades = new List<double>();//this is a field= attribute 
+        List<double> grades;//this is a field= attribute 
+        public string Name;
+        public Book(string name){
+            this.Name= name;
+            grades = new List<double>();
+        }
         public Statistics getStatistics(){
             Statistics result = new Statistics();
             result.average = 0.0;
@@ -23,5 +28,6 @@ namespace GradeBook
             //always add validation input in every method
             grades.Add(x);
         }
+        
     }
 }
