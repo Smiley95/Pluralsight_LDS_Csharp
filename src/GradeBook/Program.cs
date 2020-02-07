@@ -16,9 +16,9 @@ namespace GradeBook
                 {
                     book.addGrade(Convert.ToDouble(grade));    
                 }
-                catch (Exception ex)
+                catch (ArgumentException ex)
                 {
-                    Console.WriteLine("invalid error");
+                    Console.WriteLine(ex.Message);
                     
                 }
                 

@@ -5,11 +5,13 @@ namespace GradeBook.Tests
 {
     public class TypeTest
     {
+        public delegate Book getterDelegate(string bookName);
         [Fact]
         public void ChangeBookNameValueTest()
         {
         //Given
-            var book1 = GetBook("book1");
+            getterDelegate del = new getterDelegate(GetBook);
+            var book1 = del("book1");
         //When
             setBookName(book1, "new book");
         //Then
