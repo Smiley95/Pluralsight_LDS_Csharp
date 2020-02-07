@@ -7,9 +7,22 @@ namespace GradeBook
         static void Main(string[] args)
         {
             var book = new Book("book");
-            book.addGrade(72);
-            book.addGrade(45);
-            book.addGrade(60);
+            while(true)
+            {
+                Console.WriteLine("Enter an average  or q to quit: ");
+                var grade= Console.ReadLine();
+                if(grade.Equals("Q", StringComparison.OrdinalIgnoreCase)) break;
+                try
+                {
+                    book.addGrade(Convert.ToDouble(grade));    
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("invalid error");
+                    
+                }
+                
+            }
             var stat= book.getStatistics();
             System.Console.WriteLine($"average grade {stat.average}");
             System.Console.WriteLine($"lowest grade  {stat.low}");

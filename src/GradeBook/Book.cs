@@ -26,7 +26,8 @@ namespace GradeBook
         }
         public void addGrade(double x){
             //always add validation input in every method
-            grades.Add(x);
+            if(x>=0 && x<=100) grades.Add(x) ;
+            else throw new ArgumentException($"Invalid input");
         }
         
     }
